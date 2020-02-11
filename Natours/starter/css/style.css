@@ -34,4 +34,84 @@ body{
     background-size: cover; /*prend toutes la place disponible*/
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+}
+
+.logo-box{
+    position: absolute; /*positionnement "absolue" par rapport au header qui est en "relative" */
+    top: 40px;
+    left: 40px;
+}
+
+.logo{
+    height: 35px;
+}
+
+.text_box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*Modifie son emplacement par rapport à lui-même de -50%*/
+}
+
+.heading-primary{
+    color: #fff;
+    text-transform: uppercase; /*mise en capitale du texte*/
+
+    backface-visibility : hidden; /*empêche le tremblement de l'animation*/
+}
+
+.heading-primary-main{
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px; /*interlettrage*/
+
+    animation-name: moveInLeft; /*appel à l'animation paramétrée ci-dessous*/
+    animation-duration: 1s; 
+    animation-timing-function: ease-out; /*gestion du chronométrage de l'animation, ici plus vite au début*/
+    /*
+    animation-delay: 2s; //délai avant le lancement de l'animation
+    animation-iteration-count: 3; //nombre de répétitions de l'animation
+    */
+}
+
+.heading-primary-sub{
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px; /*interlettrage*/
+
+    animation  : moveInRight 1s ease-out;
+}
+
+/*Animations*/
+@keyframes moveInLeft { /*Fondu de la gauche*/
+    0%{
+        opacity: 0;
+        transform: translateX(-100px); /*Décalage de l'élément vers 100px à gauche*/
+    }
+    80%{
+        transform: translateX(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0); /*revient à la position de départ*/
+    }
+
+}
+
+@keyframes moveInRight { /*Fondu de la gauche*/
+    0%{
+        opacity: 0;
+        transform: translateX(100px); /*Décalage de l'élément vers 100px à gauche*/
+    }
+    80%{
+        transform: translateX(-10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0); /*revient à la position de départ*/
+    }
+
 }
