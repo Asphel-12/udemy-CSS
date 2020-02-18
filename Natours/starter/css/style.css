@@ -8,19 +8,26 @@ Dark green: #28b485
 */
 
 /* réinitialisation */
-*{
+*,
+*::after,
+*::before{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: inherit; /*héritage par rapport à body*/
+}
+
+html{
+    font-size: 62.5%; /*1 rem égal à 10px maintenant 62.5% = 10px/16px*/
 }
 
 body{
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;          
+    /*font-size: 16px;  */        
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+    box-sizing: border-box;
 }
 
 /*En-tête*/
@@ -39,12 +46,12 @@ body{
 
 .logo-box{
     position: absolute; /*positionnement "absolue" par rapport au header qui est en "relative" */
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo{
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text_box{
@@ -60,14 +67,14 @@ body{
     text-transform: uppercase; /*mise en capitale du texte*/
 
     backface-visibility : hidden; /*empêche le tremblement de l'animation*/
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main{
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px; /*interlettrage*/
+    letter-spacing: 3.5rem; /*interlettrage*/
 
     animation-name: moveInLeft; /*appel à l'animation paramétrée ci-dessous*/
     animation-duration: 1s; 
@@ -80,9 +87,9 @@ body{
 
 .heading-primary-sub{
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px; /*interlettrage*/
+    letter-spacing: 1.75rem; /*interlettrage*/
 
     animation  : moveInRight 1s ease-out;
 }
@@ -91,10 +98,10 @@ body{
 @keyframes moveInLeft { /*Fondu de la gauche*/
     0%{
         opacity: 0;
-        transform: translateX(-100px); /*Décalage de l'élément vers 100px à gauche*/
+        transform: translateX(-10rem); /*Décalage de l'élément vers 100px à gauche*/
     }
     80%{
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
     100%{
         opacity: 1;
@@ -106,10 +113,10 @@ body{
 @keyframes moveInRight { /*Fondu de la gauche*/
     0%{
         opacity: 0;
-        transform: translateX(100px); /*Décalage de l'élément vers 100px à gauche*/
+        transform: translateX(10rem); /*Décalage de l'élément vers 100px à gauche*/
     }
     80%{
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
     100%{
         opacity: 1;
@@ -121,7 +128,7 @@ body{
 @keyframes moveInBottom { 
     0%{
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
     100%{
         opacity: 1;
@@ -135,21 +142,22 @@ body{
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;
-    transition: all .2s; /*initilisation de l'animation*/ 
+    border-radius: 10rem;
+    transition: all .2s; /*initilisation de l'animation des transform*/ 
     position: relative; /*permet de gérer le pos. absolue du bouton::after*/
+    font-size: 1.6rem;
 }
 
 .btn:hover{
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);/*décalage X puis Y, floue et couleur)*/
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);/*décalage X puis Y, floue et couleur)*/
 }
 
 .btn:active{
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
 .btn-white{ /*classe permettant de personnaliser un bouton spécifique*/
@@ -159,11 +167,11 @@ body{
 
 .btn::after{ /*pseudi-éléments*/
     content:""; /*déclaration obligatoire*/
-    display: inline-block;
+    display: inline-block; /*déclaration obligatoire*/
     height: 100%;
     width: 100%;
-    border-radius: 100px;
-    position: absolute; /*permet de placer le pseudo-élémenten fonction de la position relative du bouton parent*/
+    border-radius: 10rem;
+    position: absolute; /*permet de placer le pseudo-élément en fonction de la position relative du bouton parent*/
     top: 0;
     left: 0;
     z-index: -1; /*place l'élément derrière le parent*/
