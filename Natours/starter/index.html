@@ -14,17 +14,17 @@
     </head>
     <body>
         <header class="header">
-            <div class="logo-box">
-                <img src="img/logo-white.png" alt="logo" class="logo" />
+            <div class="header__logo-box"><!--Bloc BEM non autonome-->
+                <img src="img/logo-white.png" alt="logo" class="header__logo" />
             </div>
 
-            <div class="text_box">
-                <h1 class="heading-primary">
-                    <span class="heading-primary-main">Outdoors</span>
-                    <span class="heading-primary-sub">is where life happens</span>
+            <div class="header__text_box">
+                <h1 class="heading-primary"><!--Bloc BEM autonome réutilisable donc nommage en élément-->
+                    <span class="heading-primary--main">Outdoors</span><!--sous-bloc proposant une version différente-->
+                    <span class="heading-primary--sub">is where life happens</span>
                 </h1>
 
-                <a href="#" class="btn btn-white btn-animated">Discover our tours</a>
+                <a href="#" class="btn btn--white btn--animated">Discover our tours</a>
             </div>
         </header>
     </body>
