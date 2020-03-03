@@ -1,83 +1,4 @@
 @charset "UTF-8";
-/* réinitialisation */
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  /*héritage par rapport à body*/ }
-
-html {
-  font-size: 62.5%;
-  /*1 rem égal à 10px maintenant 62.5% = 10px/16px*/ }
-
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /*font-size: 16px;  */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-/*En-tête*/
-.header {
-  height: 95vh;
-  /*remplit 95% de la hauteur de la fenêtre*/
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  /*première image de fond un dégradé, ensuite une image*/
-  background-size: cover;
-  /*prend toutes la place disponible*/
-  background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  position: relative; }
-  .header__logo-box {
-    position: absolute;
-    /*positionnement "absolue" par rapport au header qui est en "relative" */
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text_box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /*Modifie son emplacement par rapport à lui-même de -50%*/
-    text-align: center;
-    /*aligne le bouton au centre*/ }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  /*mise en capitale du texte*/
-  backface-visibility: hidden;
-  /*empêche le tremblement de l'animation*/
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    /*interlettrage*/
-    animation-name: moveInLeft;
-    /*appel à l'animation paramétrée ci-dessous*/
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /*gestion du chronométrage de l'animation, ici plus vite au début*/
-    /*
-        animation-delay: 2s; //délai avant le lancement de l'animation
-        animation-iteration-count: 3; //nombre de répétitions de l'animation
-        */ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    /*interlettrage*/
-    animation: moveInRight 1s ease-out; }
-
 /*Animations*/
 @keyframes moveInLeft {
   /*Fondu de la gauche*/
@@ -112,6 +33,60 @@ body {
   100% {
     opacity: 1;
     transform: translate(0); } }
+
+/* réinitialisation */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /*héritage par rapport à body*/ }
+
+html {
+  font-size: 62.5%;
+  /*1 rem égal à 10px maintenant 62.5% = 10px/16px*/ }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;  */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /*mise en capitale du texte*/
+  backface-visibility: hidden;
+  /*empêche le tremblement de l'animation*/
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /*interlettrage*/
+    animation-name: moveInLeft;
+    /*appel à l'animation paramétrée ci-dessous*/
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /*gestion du chronométrage de l'animation, ici plus vite au début*/
+    /*
+        animation-delay: 2s; //délai avant le lancement de l'animation
+        animation-iteration-count: 3; //nombre de répétitions de l'animation
+        */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /*interlettrage*/
+    animation: moveInRight 1s ease-out; }
 
 /*Bouton*/
 .btn:link, .btn:visited {
@@ -170,3 +145,30 @@ body {
   /*dernière valeur est un délai*/
   animation-fill-mode: backwards;
   /*permet de n'appliquer les valeurs de 0% qu'après le délai*/ }
+
+/*En-tête*/
+.header {
+  height: 95vh;
+  /*remplit 95% de la hauteur de la fenêtre*/
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /*première image de fond un dégradé, ensuite une image*/
+  background-size: cover;
+  /*prend toutes la place disponible*/
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    /*positionnement "absolue" par rapport au header qui est en "relative" */
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text_box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*Modifie son emplacement par rapport à lui-même de -50%*/
+    text-align: center;
+    /*aligne le bouton au centre*/ }

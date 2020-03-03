@@ -1,0 +1,31 @@
+/*En-tête*/
+.header{
+    height: 95vh; /*remplit 95% de la hauteur de la fenêtre*/
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)),
+    url(../img/hero.jpg); /*première image de fond un dégradé, ensuite une image*/
+    background-size: cover; /*prend toutes la place disponible*/
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    position: relative;
+
+    &__logo-box{
+        position: absolute; /*positionnement "absolue" par rapport au header qui est en "relative" */
+        top: 4rem;
+        left: 4rem;
+    }
+
+    &__logo{
+        height: 3.5rem;
+    }
+    
+    &__text_box{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%); /*Modifie son emplacement par rapport à lui-même de -50%*/
+        text-align: center; /*aligne le bouton au centre*/
+    }
+}
