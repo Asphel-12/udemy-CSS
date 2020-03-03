@@ -32,24 +32,21 @@ body {
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative; }
-
-.header__logo-box {
-  position: absolute;
-  /*positionnement "absolue" par rapport au header qui est en "relative" */
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__text_box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /*Modifie son emplacement par rapport à lui-même de -50%*/
-  text-align: center;
-  /*aligne le bouton au centre*/ }
+  .header__logo-box {
+    position: absolute;
+    /*positionnement "absolue" par rapport au header qui est en "relative" */
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text_box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*Modifie son emplacement par rapport à lui-même de -50%*/
+    text-align: center;
+    /*aligne le bouton au centre*/ }
 
 .heading-primary {
   color: #fff;
@@ -58,30 +55,28 @@ body {
   backface-visibility: hidden;
   /*empêche le tremblement de l'animation*/
   margin-bottom: 6rem; }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  /*interlettrage*/
-  animation-name: moveInLeft;
-  /*appel à l'animation paramétrée ci-dessous*/
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /*gestion du chronométrage de l'animation, ici plus vite au début*/
-  /*
-    animation-delay: 2s; //délai avant le lancement de l'animation
-    animation-iteration-count: 3; //nombre de répétitions de l'animation
-    */ }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  /*interlettrage*/
-  animation: moveInRight 1s ease-out; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /*interlettrage*/
+    animation-name: moveInLeft;
+    /*appel à l'animation paramétrée ci-dessous*/
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /*gestion du chronométrage de l'animation, ici plus vite au début*/
+    /*
+        animation-delay: 2s; //délai avant le lancement de l'animation
+        animation-iteration-count: 3; //nombre de répétitions de l'animation
+        */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /*interlettrage*/
+    animation: moveInRight 1s ease-out; }
 
 /*Animations*/
 @keyframes moveInLeft {
@@ -119,8 +114,7 @@ body {
     transform: translate(0); } }
 
 /*Bouton*/
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -136,6 +130,11 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   /*décalage X puis Y, floue et couleur)*/ }
+  .btn:hover::after {
+    /*pseudo-classe du pseudo-élément*/
+    transform: scaleX(1.4) scaleY(1.6);
+    /*met à l'échelle l'élément*/
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
@@ -145,6 +144,8 @@ body {
   /*classe permettant de personnaliser un bouton spécifique*/
   background-color: #fff;
   color: #777; }
+  .btn--white::after {
+    background-color: #fff; }
 
 .btn::after {
   /*pseudi-éléments*/
@@ -163,15 +164,6 @@ body {
   /*place l'élément derrière le parent*/
   transition: all .4s;
   /*gère l'animation des transform*/ }
-
-.btn--white::after {
-  background-color: #fff; }
-
-.btn:hover::after {
-  /*pseudo-classe du pseudo-élément*/
-  transform: scaleX(1.4) scaleY(1.6);
-  /*met à l'échelle l'élément*/
-  opacity: 0; }
 
 .btn--animated {
   animation: moveInBottom .5s ease-out .75s;
