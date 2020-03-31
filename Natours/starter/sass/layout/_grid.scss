@@ -1,6 +1,5 @@
 .row{
     max-width: $grid-width;
-    background-color: #eee;
     margin: 0 auto; 
 
     &:not(:last-child){ //tout ce qui n'est pas le dernier enfant
@@ -10,7 +9,6 @@
     @include clearfix(); //redonne une hauteur à la ligne après l'utilisation de flat
 
     [class^="col-"]{ //sélection tous les éléments commençant par col-
-        background-color: orangered;
         float: left;
 
         &:not(:last-child){
