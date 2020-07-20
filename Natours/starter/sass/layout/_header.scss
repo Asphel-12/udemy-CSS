@@ -8,6 +8,7 @@
     url(../img/hero.jpg); /*première image de fond un dégradé, ensuite une image*/
     background-size: cover; /*prend toutes la place disponible*/
     background-position: top;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
     position: relative;
 

@@ -37,6 +37,15 @@
         }
     }
 
+    &--green{ /*classe permettant de personnaliser un bouton spécifique*/
+        background-color: $color-primary;  
+        color: $color-white; 
+
+        &::after{
+            background-color: $color-primary;
+        } 
+    }
+
     &::after{ /*pseudi-éléments*/
         content:""; /*déclaration obligatoire*/
         display: inline-block; /*déclaration obligatoire*/
