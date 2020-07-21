@@ -13,7 +13,7 @@
         top: 0;
         left: 0;
         backface-visibility: hidden; //cache l'arrière de la carte
-        border-radius: 3px;
+        border-radius: $radius;
         overflow: hidden; //permet de remettre l'image à l'intérieur de son parent "côté"
         box-shadow: 0 1.5rem 4rem rgba($color-black, .15); 
 

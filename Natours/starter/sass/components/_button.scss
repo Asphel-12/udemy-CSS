@@ -1,6 +1,7 @@
 /*Bouton*/
 .btn{
 
+    &,
     &:link, /*classe bouton globale*/
     &:visited {
         text-transform: uppercase;
@@ -11,9 +12,13 @@
         transition: all .2s; /*initilisation de l'animation des transform*/ 
         position: relative; /*permet de gérer le pos. absolue du bouton::after*/
         font-size: $default-font-size;
-    }
 
-   &:hover{
+        //Change for the <button> element
+        border: none;
+        cursor: pointer;
+    } 
+
+   &:hover {
         transform: translateY(-3px);
         box-shadow: 0 1rem 2rem rgba($color-black,.2);/*décalage X puis Y, floue et couleur)*/
 
@@ -23,7 +28,9 @@
         }
     }
     
-   &:active{
+   &:active, 
+   &:focus{
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black,.2);
     }
