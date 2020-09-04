@@ -9,19 +9,38 @@
     font-size: $default-font-size; 
     transform: skewX(-12deg);  
 
+    @include respond(tab-port){
+        width: 100%; 
+        padding: 4rem;
+        padding-left: 7rem;
+    }
+
+    @include respond(phone){
+        transform: skewX(0); 
+    }
+
     &__shape{
         width: 15rem;
         height: 15rem;
         float: left;
-        //permet de définir la forme que prend le texte autour d'un élément
-        -webkit-shape-outside: circle(50% at 50% 50%);  //radius puis position du centre du cercle
-        shape-outside: circle(50% at 50% 50%);  //radius puis position du centre du cercle
-        //transforme une forme en texte
-        -webkit-clip-path: circle(50% at 50% 50%) ; 
-        clip-path: circle(50% at 50% 50%) ;
         //rajoute une marge à un élément flottant
         transform: translateX(-3rem) skewX(12deg); 
         position: relative; // parent de la figcaption
+        overflow: hidden; 
+        border-radius: 50%; 
+
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)){ //test si support de la fonctionnalité appliquer le code 
+            -webkit-clip-path: circle(50% at 50% 50%) ; 
+            clip-path: circle(50% at 50% 50%) ;
+            //permet de définir la forme que prend le texte autour d'un élément
+            -webkit-shape-outside: circle(50% at 50% 50%);  //radius puis position du centre du cercle
+            shape-outside: circle(50% at 50% 50%);  //radius puis position du centre du cercle
+            border-radius: none; 
+        }
+
+        @include respond(phone){
+            transform: translateX(-3rem) skewX(0deg);  
+        }
     }
 
     &__img{ 
@@ -32,7 +51,11 @@
     }
 
     &__text{
-        transform: skewX(12deg); 
+        transform: skewX(12deg);
+
+        @include respond(phone){
+            transform: skewX(0deg);   
+        }
     }
 
     &__caption{

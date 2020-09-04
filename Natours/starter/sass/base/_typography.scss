@@ -4,7 +4,6 @@ body{
     /*font-size: 16px;  */        
     line-height: 1.7;
     color: $color-grey-dark;
-    padding: 3rem;
 }
 
 .heading-primary{
@@ -12,6 +11,7 @@ body{
     text-transform: uppercase; /*mise en capitale du texte*/
     backface-visibility : hidden; /*empêche le tremblement de l'animation*/
     margin-bottom: 6rem;
+
 
     &--main{
         display: block;
@@ -26,6 +26,11 @@ body{
         animation-delay: 2s; //délai avant le lancement de l'animation
         animation-iteration-count: 3; //nombre de répétitions de l'animation
         */
+
+        @include respond(phone){ 
+            letter-spacing: 1rem; 
+            font-size: 5rem; 
+        } 
     }
     
     &--sub{
@@ -35,6 +40,10 @@ body{
         letter-spacing: 1.75rem; /*interlettrage*/
     
         animation  : moveInRight 1s ease-out;
+
+        @include respond(phone){ 
+            letter-spacing: .5rem; 
+        } 
     }   
 }
 
@@ -48,6 +57,14 @@ body{
     color: transparent; //pour voir l'arrière-plan
     letter-spacing: 2px;
     transition: all .2s;
+
+    @include respond(tab-port){ 
+        font-size: 3rem;
+    } 
+
+    @include respond(phone){ 
+        font-size: 2.5rem;   
+    } 
 
     &:hover{
         transform: skewY(2deg) skewX(15deg) scale(1.1);
@@ -67,4 +84,4 @@ body{
     &:not(:last-child){
         margin-bottom: 3rem; 
     }
-}
+}    
