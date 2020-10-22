@@ -14,6 +14,12 @@ $color-grey-dark-2: #6D5D4B;
 $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
+// RESPONSIVE BREAKPOINTS Vérifier où le visuel se casse
+$bp-largest: 75em; //1200/16=75em
+$bp-large: 62.5em; //1000/16=62.5em
+$bp-medium: 50em;  //800/16=50em
+$bp-small: 37.5em; //600/16= 37.5em
+
 *,
 *::before,
 *::after {
@@ -25,6 +31,10 @@ $font-display: 'Josefin Sans', sans-serif;
 html {
     box-sizing: border-box;
     font-size: 62.5%; //10px/16px = 62.5 % -> 1rem=10px
+
+    @media only screen and (max-width: $bp-largest){
+        font-size: 50%;
+    }
 }
 
 body{
@@ -36,7 +46,7 @@ body{
 
 .container{
     display: grid;
-    grid-template-rows: 80vh 
+    grid-template-rows: 80vh //header
                         min-content 
                         40vw 
                         repeat(3, min-content);
@@ -44,4 +54,23 @@ body{
                             [sidebar-end full-start] minmax(6rem, 1fr) //colonne de centrage
                             [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])  //centre : 8 colonnes de largeur minimum au contenu et d'une largeur max de 140px                  
                             [center-end] minmax(6rem, 1fr) [full-end]; //colonne de centrage
+
+    @media only screen and (max-width: $bp-large){
+    //On déplace la sidebar des colonnes vers les rows
+        grid-template-rows: 6rem //sidebar
+                            80vh  //header
+                            min-content 
+                            40vw 
+                            repeat(3, min-content);
+        grid-template-columns:  [full-start] minmax(6rem, 1fr) //colonne de centrage
+                                [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end])  //centre : 8 colonnes de largeur minimum au contenu et d'une largeur max de 140px                  
+                                [center-end] minmax(6rem, 1fr) [full-end]; //colonne de centrage
+
+    }
+
+    @media only screen and (max-width: $bp-medium){
+        grid-template-rows: 6rem //sidebar
+                            calc(100vh - 6rem); //header qui prend toute la hauteur 
+                            // les autres lignes sont auto en min-content  
+    }      
 } 
